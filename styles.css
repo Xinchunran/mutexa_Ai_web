@@ -207,6 +207,75 @@ h3 {
   font-size: 0.86rem;
 }
 
+.demo-link {
+  display: inline-flex;
+  margin-top: 12px;
+  color: #95eaff;
+  font-size: 0.92rem;
+}
+
+.structure-stage {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at 70% 20%, #16263e 0%, #0a0f17 52%);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 22px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 18px;
+  align-items: center;
+}
+
+.structure-glow {
+  position: absolute;
+  width: 330px;
+  height: 330px;
+  border-radius: 999px;
+  right: -80px;
+  top: -90px;
+  background: radial-gradient(circle, rgba(104, 230, 255, 0.27) 0%, rgba(104, 230, 255, 0) 65%);
+}
+
+.structure-main {
+  position: relative;
+  z-index: 1;
+}
+
+.structure-image {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+  border: 1px solid #274063;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.32);
+}
+
+.structure-meta {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 10px;
+}
+
+.structure-item {
+  background: rgba(10, 17, 29, 0.86);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.structure-item strong {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--brand);
+}
+
+.structure-item p {
+  margin: 7px 0 0;
+  color: var(--muted);
+}
+
 .feature-banner {
   display: flex;
   justify-content: space-between;
@@ -266,7 +335,8 @@ h3 {
   .hero-grid,
   .card-grid,
   .columns,
-  .protein-grid {
+  .protein-grid,
+  .structure-stage {
     grid-template-columns: 1fr;
   }
 
