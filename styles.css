@@ -232,6 +232,13 @@ h3 {
   margin-bottom: 8px;
 }
 
+.copyright {
+  width: min(1080px, 92vw);
+  margin: 14px auto 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
 .section-intro {
   margin: -2px 0 18px;
   color: var(--muted);
