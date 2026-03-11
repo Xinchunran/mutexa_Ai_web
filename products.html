@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/molstar/build/viewer/molstar.css">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
@@ -94,9 +95,9 @@
         </p>
         <div class="structure-stage">
           <div class="structure-glow"></div>
-          <a class="structure-main" href="https://www.rcsb.org/structure/1XHZ" target="_blank" rel="noopener noreferrer">
-            <img class="structure-image" src="https://cdn.rcsb.org/images/structures/xh/1xhz/1xhz_assembly-1.jpeg" alt="Structure demo template based on RCSB 1XHZ">
-          </a>
+          <div class="structure-main">
+            <div id="molstar-viewer" class="molstar-viewer"></div>
+          </div>
           <div class="structure-meta">
             <div class="structure-item">
               <strong>Template Label</strong>
@@ -110,6 +111,7 @@
               <strong>Current Example</strong>
               <p>RCSB 1XHZ (placeholder)</p>
             </div>
+            <a class="btn btn-ghost" href="https://www.rcsb.org/structure/1XHZ" target="_blank" rel="noopener noreferrer">Open RCSB Entry</a>
           </div>
         </div>
       </div>
@@ -151,5 +153,25 @@
     </div>
     <p class="copyright">© 2026 Mutexa AI. All rights reserved.</p>
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/molstar/build/viewer/molstar.js"></script>
+  <script>
+    (async () => {
+      const host = document.getElementById("molstar-viewer");
+      if (!host || !window.molstar || !window.molstar.Viewer) return;
+      try {
+        const viewer = await window.molstar.Viewer.create("molstar-viewer", {
+          layoutIsExpanded: false,
+          layoutShowControls: false,
+          layoutShowSequence: false,
+          layoutShowLog: false,
+          viewportShowExpand: false,
+          viewportShowSelectionMode: false
+        });
+        await viewer.loadStructureFromUrl("https://models.rcsb.org/1xhz.bcif", "bcif", false);
+      } catch (error) {
+        host.textContent = "Interactive protein structure failed to load.";
+      }
+    })();
+  </script>
 </body>
 </html>
