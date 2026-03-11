@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/molstar/build/viewer/molstar.css">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
@@ -47,12 +48,7 @@
             <li>Deep learning tools for kinetic prediction</li>
             <li>AI-guided synthetic biology workflow optimization</li>
           </ul>
-          <div class="protein-motion" aria-hidden="true">
-            <span class="protein-orbit orbit-a"></span>
-            <span class="protein-orbit orbit-b"></span>
-            <span class="protein-orbit orbit-c"></span>
-            <span class="protein-core"></span>
-          </div>
+          <div id="molstar-hero" class="molstar-viewer molstar-hero"></div>
         </div>
       </div>
     </section>
@@ -149,5 +145,25 @@
     </div>
     <p class="copyright">© 2026 Mutexa AI. All rights reserved.</p>
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/molstar/build/viewer/molstar.js"></script>
+  <script>
+    (async () => {
+      const host = document.getElementById("molstar-hero");
+      if (!host || !window.molstar || !window.molstar.Viewer) return;
+      try {
+        const viewer = await window.molstar.Viewer.create("molstar-hero", {
+          layoutIsExpanded: false,
+          layoutShowControls: false,
+          layoutShowSequence: false,
+          layoutShowLog: false,
+          viewportShowExpand: false,
+          viewportShowSelectionMode: false
+        });
+        await viewer.loadStructureFromUrl("./1xhz.cif", "mmcif", false);
+      } catch (error) {
+        host.textContent = "Interactive protein structure failed to load.";
+      }
+    })();
+  </script>
 </body>
 </html>

@@ -167,7 +167,7 @@
           viewportShowExpand: false,
           viewportShowSelectionMode: false
         });
-        await viewer.loadStructureFromUrl("https://models.rcsb.org/1xhz.bcif", "bcif", false);
+        await viewer.loadStructureFromUrl("./1xhz.cif", "mmcif", false);
       } catch (error) {
         host.textContent = "Interactive protein structure failed to load.";
       }

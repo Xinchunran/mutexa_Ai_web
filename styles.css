@@ -341,6 +341,21 @@ h3 {
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.32);
 }
 
+.molstar-hero {
+  margin-top: 18px;
+  height: 220px;
+}
+
+.molstar-viewer .msp-plugin,
+.molstar-viewer .msp-layout-static,
+.molstar-viewer .msp-viewport {
+  background: #030912 !important;
+}
+
+.molstar-viewer canvas {
+  background: #030912 !important;
+}
+
 .structure-image {
   width: 100%;
   display: block;
@@ -466,5 +481,9 @@ h3 {
 
   .molstar-viewer {
     height: 320px;
+  }
+
+  .molstar-hero {
+    height: 220px;
   }
 }
