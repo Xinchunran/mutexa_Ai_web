@@ -353,10 +353,10 @@ h3 {
 
 .protein-frame {
   position: absolute;
-  width: 132%;
+  width: 118%;
   max-width: none;
-  left: -16%;
-  top: -32%;
+  left: 50%;
+  top: 50%;
   opacity: 0.94;
   transform-origin: 50% 50%;
   filter: drop-shadow(0 24px 40px rgba(8, 160, 214, 0.26));
@@ -373,15 +373,15 @@ h3 {
 }
 
 @keyframes protein-drift-a {
-  0% { transform: translate3d(0, 0, 0) rotate(-1deg) scale(1); }
-  50% { transform: translate3d(12px, -10px, 0) rotate(2deg) scale(1.03); }
-  100% { transform: translate3d(0, 0, 0) rotate(-1deg) scale(1); }
+  0% { transform: translate3d(-50%, -50%, 0) rotate(-1deg) scale(1); }
+  50% { transform: translate3d(calc(-50% + 12px), calc(-50% - 10px), 0) rotate(2deg) scale(1.03); }
+  100% { transform: translate3d(-50%, -50%, 0) rotate(-1deg) scale(1); }
 }
 
 @keyframes protein-drift-b {
-  0% { transform: translate3d(0, 0, 0) rotate(2deg) scale(1.03); }
-  50% { transform: translate3d(-10px, 8px, 0) rotate(-1deg) scale(0.99); }
-  100% { transform: translate3d(0, 0, 0) rotate(2deg) scale(1.03); }
+  0% { transform: translate3d(-50%, -50%, 0) rotate(2deg) scale(1.03); }
+  50% { transform: translate3d(calc(-50% - 10px), calc(-50% + 8px), 0) rotate(-1deg) scale(0.99); }
+  100% { transform: translate3d(-50%, -50%, 0) rotate(2deg) scale(1.03); }
 }
 
 .structure-image {
@@ -516,8 +516,6 @@ h3 {
   }
 
   .protein-frame {
-    width: 150%;
-    left: -25%;
-    top: -34%;
+    width: 128%;
   }
 }
